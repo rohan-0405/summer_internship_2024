@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantic HTML Tags Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        header, nav, main, section, article, aside, footer {
+            margin: 10px 0;
+        }
+        header, footer {
+            background-color: #f4f4f4;
+            padding: 10px;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+        figure {
+            text-align: center;
+        }
+        figcaption {
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Website</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h2>Welcome to My Website</h2>
+            <p>This is the main content area where you will find the latest updates and information.</p>
+            <figure>
+                <img src="rr.png" alt="A beautiful view" width="300">
+                <figcaption>A beautiful view of the mountains.</figcaption>
+            </figure>
+        </section>
+
+        <section id="about">
+            <h2>About Us</h2>
+            <p>We are a company dedicated to making the web better. You can contact us at:</p>
+            <address>
+                123 Web Avenue<br>
+                Web City, WB 45678<br>
+                <a href="mailto:info@mywebsite.com">info@mywebsite.com</a>
+            </address>
+        </section>
+
+        <article>
+            <h2>Latest News</h2>
+            <p>Our latest news article goes here.</p>
+        </article>
+
+        <aside>
+            <h2>Related Articles</h2>
+            <ul>
+                <li><a href="#article1">Article 1</a></li>
+                <li><a href="#article2">Article 2</a></li>
+            </ul>
+        </aside>
+
+        <section>
+            <h2>Details and Summary Example</h2>
+            <details>
+                <summary>More Information</summary>
+                <p>This is additional information that you can choose to hide or show.</p>
+            </details>
+        </section>
+
+        <section>
+            <h2>Code Example</h2>
+            <p>Here is a simple HTML code example:</p>
+            <pre><code>&lt;p&gt;Hello, World!&lt;/p&gt;</code></pre>
+        </section>
+
+        <section>
+            <h2>Emphasized and Strong Text</h2>
+            <p>This is <em>emphasized text</em> and this is <strong>strong text</strong>.</p>
+        </section>
+
+        <section>
+            <h2>Blockquote and Cite Example</h2>
+            <blockquote cite="https://www.huxley.net/bnw/four.html">
+                <p>Words can be like X-rays if you use them properly – they’ll go through anything. You read and you’re pierced.</p>
+            </blockquote>
+            <cite>Aldous Huxley, Brave New World</cite>
+        </section>
+
+        <section>
+            <h2>Abbreviation Example</h2>
+            <p>The abbreviation for Hypertext Markup Language is <abbr title="Hypertext Markup Language">HTML</abbr>.</p>
+        </section>
+
+        <section>
+            <h2>Definition Example</h2>
+            <p><dfn>HTML</dfn> is the standard markup language for creating web pages.</p>
+        </section>
+
+        <section>
+            <h2>Sample Output Example</h2>
+            <p>Here is an example of sample output from a program:</p>
+            <samp>Username: user123</samp>
+        </section>
+
+        <section>
+            <h2>Keyboard Input Example</h2>
+            <p>To save your work, press <kbd>Ctrl</kbd> + <kbd>S</kbd>.</p>
+        </section>
+
+        <section>
+            <h2>Time Element Example</h2>
+            <p>The event starts at <time datetime="2024-07-20T20:00">8 PM on July 20, 2024</time>.</p>
+        </section>
+
+        <section>
+            <h2>Data Element Example</h2>
+            <p>The population of the city is <data value="5000000">5 million</data>.</p>
+        </section>
+
+        <section>
+            <h2>Mark Element Example</h2>
+            <p>This is a <mark>highlighted</mark> text.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My Website</p>
+        <nav>
+            <ul>
+                <li><a href="#privacy">Privacy Policy</a></li>
+                <li><a href="#terms">Terms of Service</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+</html>
