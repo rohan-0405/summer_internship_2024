@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/summer_internship_2024/project/favicon_io (2)/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/summer_internship_2024/project/favicon_io (2)/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/summer_internship_2024/project/favicon_io (2)/favicon-16x16.png"><link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/projects/summer_internship_2024/project/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <title>Register-page</title>
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+
+        .carousel-item img {
+            object-fit: cover;
+            height: 100vh;
+        }
+
+        .error-message {
+            color: red;
+            margin-bottom: 1rem;
+            font-size: small;
+            text-align: center;
+        }
+
+        .right {
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .right loginForm{
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .right .register-link {
+            display: block;
+            margin-top: 1rem;
+            text-align: center;
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .right input {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .right button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            color: #ffffff;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .right form {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-8" style="padding-left: 0%; padding-right: 0%;">
+                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>      
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="/project/register_page/photo-1516461240763-822a87484851.avif" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h6>TIMELESS & ELEGANT</h6>
+                                <h2 style="font-size: 3rem">BEST SELLER</h2>
+                                <p>Complete your everyday look classic leather strap watch.</p>
+                                <button class="btn btn-dark rounded px-4 py-2 text-white">Shop Now</button>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img
+                                src="/project/register_page/slider-6.jpg"
+                                class="d-block w-100 vh-100"
+                                alt="..."
+                            />
+                            <div class="carousel-caption d-none d-md-block">
+                                <h6>BRAND PROTACTION</h6>
+                                <h2 style="font-size: 3rem">SUPER COLECTION</h2>
+                                <p>THE BEST QUALITY WATCHES ARE HERE FOR YOU.</p>
+                                <button
+                                    class="btn btn-default bg-dark rounded px-4 py-2 text-white"
+                                    >
+                                    Visit Page
+                                </button>
+                            </div>    
+                        </div>
+                        <div class="carousel-item">
+                            <img
+                            src="/project/register_page/slider-5.jpg"
+                            class="d-block w-100 vh-100"
+                            alt="..."
+                            />
+                            <div class="carousel-caption d-none d-md-block">
+                                <h6>PERFOMANCE MAXOUT</h6>
+                                <h2 style="font-size: 3rem">CLASS WATCHES</h2>
+                                <p>THE STRAGTH OF OUR WATCHES ARE AS GOOD AS OTHER COMPONIES.</p>
+                                <button
+                                    class="btn btn-default bg-dark rounded px-4 py-2 text-white"
+                                    >
+                                Log In
+                                </button>
+                            </div>
+                        </div>
+                    </div>    
+                    <button
+                        class="carousel-control-prev"
+                        type="button"
+                        data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="prev"
+                        >
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button
+                        class="carousel-control-next"
+                        type="button"
+                        data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="next"
+                        >
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-lg-4" style="padding-left: 5px; padding-right: 0%;">
+                <div class="right">
+                    <form id="loginForm">
+                        <label for="username">
+                            Username:
+                        </label>
+                        <input type="text" id="username" name="username" required placeholder="Rohan Patel">
+                        <label for="emailid">
+                            Email id:
+                        </label>
+                        <br>
+                        <input type="text" id="emailid" name="username" required placeholder="abc123@gmail.com">
+                        <label for="password">
+                            password:
+                            <a href="javascript:void(0)" id="togglePassword">
+                                <i class="fa-solid fa-eye"></i> <!-- Font Awesome icon for eye -->
+                            </a>
+                        </label>
+                        <br>
+                        <input type="password" id="password" name="password" required>
+                        <div id="error-message" class="error-message">
+                        
+                        </div>
+                        <!-- <a href="" class="register-link">Don't have an account? Register</a> -->
+                        <label for="con-password">
+                            Confirm password:
+                        </label>
+                        <br>
+                        <input type="password" id="con-password" name="con-password" required>
+                        <div id="con-password-error" class="error-message"></div>
+                        
+                        <button type="submit" class="btn btn-primary">
+                            Log In
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const form = document.getElementById('loginForm');
+        const passwordInput = document.getElementById('password');
+        const errorMessage = document.getElementById('error-message');
+
+        form.addEventListener('submit', function (event) {
+            const password = passwordInput.value;
+            const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,16}$/;
+
+            if (!passwordPattern.test(password)) {
+                errorMessage.textContent = '(Password must be 8-16 character, include at least one uppercase letter, one lowercase letter, one number, and one special character.)';
+                event.preventDefault();
+            }
+            else {
+                errorMessage.textContent = '';
+            }
+        });
+
+        const conPasswordInput = document.getElementById('con-password');
+        const conPasswordError = document.getElementById('con-password-error');
+
+        form.addEventListener('submit', function (event) {
+        const password = passwordInput.value;
+        const conPassword = conPasswordInput.value;
+
+    // Check if confirm password matches the original password
+        if (password !== conPassword) {
+            conPasswordError.textContent = 'Passwords do not match.';
+            event.preventDefault();
+        } else {
+            conPasswordError.textContent = '';
+        }
+
+    // Your existing password validation code
+        const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,16}$/;
+        if (!passwordPattern.test(password)) {
+            errorMessage.textContent = 'Password must be 8-16 characters long, include at least one uppercase letter, one lowercase letter, one number, and one special character.';
+            event.preventDefault();
+        } else {
+            errorMessage.textContent = '';
+        }
+        });
+
+        // const passwordInput = document.getElementById('password');
+        const togglePassword = document.getElementById('togglePassword');
+
+        togglePassword.addEventListener('click', function (event) {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+
+    // Toggle eye icon based on password visibility
+            if (type === 'password') {
+                togglePassword.innerHTML = '<i class="fa-solid fa-eye"></i>';
+            } else {
+                togglePassword.innerHTML = '<i class="fa-solid fa-eye"></i>';
+            }
+
+    // Prevent default link behavior
+            event.preventDefault();
+        });
+
+    </script>
+</body>
+</html>

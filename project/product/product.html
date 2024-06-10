@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/summer_internship_2024/project/favicon_io (2)/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/summer_internship_2024/project/favicon_io (2)/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/summer_internship_2024/project/favicon_io (2)/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <title>Product Page</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .product-header {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .product-images {
+            flex: 1;
+            max-width: 50%;
+            padding-right: 20px;
+        }
+        .product-images img {
+            width: 100%;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .product-images img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .product-details {
+            flex: 1;
+            max-width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .product-title {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #222;
+            font-weight: 700;
+        }
+        .product-price {
+            font-size: 32px;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+        .product-description {
+            margin-bottom: 20px;
+            color: #555;
+            line-height: 1.6;
+        }
+        .product__form-block {
+            margin-bottom: 20px;
+        }
+        .qty__adjust {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .qty__adjust input {
+            width: 50px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 0 10px;
+        }
+        .qty__adjust-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .qty__adjust-btn svg {
+            width: 24px;
+            height: 24px;
+        }
+        .add-to-cart,
+        .start-review,
+        .review-form button {
+            background-color: #3498db;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+        }
+        .add-to-cart:hover,
+        .start-review:hover,
+        .review-form button:hover {
+            background-color: #2980b9;
+        }
+        .start-review {
+            background-color: #2ecc71;
+        }
+        .start-review:hover {
+            background-color: #27ae60;
+        }
+        .reviews {
+            margin-top: 40px;
+        }
+        .reviews h2 {
+            color: #222;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        .review {
+            border-top: 1px solid #ddd;
+            padding-top: 15px;
+            margin-top: 15px;
+            color: #555;
+        }
+        .review:last-child {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 15px;
+        }
+        .review strong {
+            display: block;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .review span {
+            color: #f39c12;
+        }
+        .product__images__slider-nav {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .product-single__media-thumb {
+            flex: 1;
+        }
+        .product-single__media-thumb img {
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            transition: transform 0.3s ease;
+        }
+        .product-single__media-thumb img:hover {
+            transform: scale(1.05);
+        }
+        .related-products {
+            margin-top: 40px;
+        }
+        .related-products h2 {
+            color: #222;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        .related-products-grid {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .related-product {
+            flex: 1;
+            min-width: 220px;
+            max-width: 220px;
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .related-product img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .related-product:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .related-product-title {
+            font-size: 16px;
+            margin-top: 10px;
+            color: #333;
+        }
+        .leave-review {
+            margin-top: 40px;
+        }
+        .leave-review h2 {
+            color: #222;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        .review-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .review-form label {
+            font-size: 16px;
+            color: #333;
+        }
+        .review-form input,
+        .review-form textarea {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .hidden {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .product-header {
+                flex-direction: column;
+            }
+            .product-images,
+            .product-details {
+                max-width: 100%;
+            }
+        }
+    </style>
+    <script>
+        function toggleReviewForm() {
+            const reviewForm = document.querySelector('.leave-review');
+            reviewForm.classList.toggle('hidden');
+            document.querySelector('.start-review').classList.toggle('hidden');
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="product-header">
+            <div class="product-images">
+                <img src="/summer_internship_2024/project/product/timex watch men/m.webp" alt="Product Image">
+                <div class="product__images__slider-nav">
+                    <div class="product-single__media-thumb">
+                        <a href="/summer_internship_2024/project/product/timex watch men/m.webp">
+                            <img src="/summer_internship_2024/project/product/timex watch men/m.webp" alt="Thumbnail 1">
+                        </a>
+                    </div>
+                    <div class="product-single__media-thumb">
+                        <a href="/summer_internship_2024/project/product/timex watch men/1.avif">
+                            <img src="/summer_internship_2024/project/product/timex watch men/1.avif" alt="Thumbnail 2">
+                        </a>
+                    </div>
+                    <div class="product-single__media-thumb">
+                        <a href="/summer_internship_2024/project/product/timex watch men/2.avif">
+                            <img src="/summer_internship_2024/project/product/timex watch men/2.avif" alt="Thumbnail 3">
+                        </a>
+                    </div>
+                    <div class="product-single__media-thumb">
+                        <a href="/summer_internship_2024/project/product/timex watch men/3.avif">
+                            <img src="/summer_internship_2024/project/product/timex watch men/3.avif" alt="Thumbnail 4">
+                        </a>
+                    </div>
+                    <div class="product-single__media-thumb">
+                        <a href="/summer_internship_2024/project/product/timex watch men/4.avif">
+                            <img src="/summer_internship_2024/project/product/timex watch men/4.avif" alt="Thumbnail 5">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-details">
+                <div>
+                    <div class="product-title">Timex E Class Men Round Dial Quartz Analog Watch</div>
+                    <div class="product-price">MRP : ₹ 5,807.00</div>
+                    <div class="product-description">Inclusive of all taxes</div>
+                </div>
+                <div class="product__form-block">
+                    <div class="qty__adjust" data-quantity-holder="">
+                        <label for="quantity--template--17807466922232__main" class="accessible-label">Quantity selector</label>
+                        <input type="number" class="qty__adjust-input" name="quantity" id="quantity--template--17807466922232__main" value="1" min="1" data-quantity-field="">
+                        <button type="button" class="qty__adjust-btn qty__adjust-btn--minus" aria-label="Decrease" data-quantity-minus="" data-quantity-button="">
+                            <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-minus" viewBox="0 0 1024 1024">
+                                <path d="M51.573 459.468l-.017-.585c.795-.02.795-.02 1.59-.024 1.42.011 1.42.011 1.933.05l915.021.002c.407-.005.407-.005.805-.006 29.324 0 53.095 23.771 53.095 53.095s-23.771 53.095-53.095 53.095c-.365-.001-.365-.001-.524-.004l-914.477-.021c-1.378.059-1.378.059-2.762.071C23.792 565.141 0 541.348 0 511.999c0-28.271 22.132-51.558 50.361-53.069l.832-.044.382.582z"></path>
+                            </svg>
+                        </button>
+                        <button type="button" class="qty__adjust-btn qty__adjust-btn--plus" aria-label="Increase" data-quantity-plus="" data-quantity-button="">
+                            <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-plus" viewBox="0 0 1024 1024">
+                                <path d="M465.066 465.067l.001-411.166c-.005-.407-.005-.407-.006-.805 0-29.324 23.796-53.095 53.149-53.095s53.149 23.771 53.149 53.095c-.001.365-.001.365-.004.524l-.009 411.446 398.754.001c.407-.005.407-.005.805-.006 29.324 0 53.095 23.796 53.095 53.149s-23.771 53.149-53.095 53.149c-.365-.001-.365-.001-.524-.004l-399.037-.009-.009 396.75a53.99 53.99 0 01.071 2.762c0 29.35-23.817 53.142-53.197 53.142-28.299 0-51.612-22.132-53.124-50.361l-.044-.832.583-.382-.586.017c-.02-.795-.02-.795-.024-1.59.011-1.42.011-1.42.05-1.933l.001-397.576-409.162-.009c-1.378.059-1.378.059-2.762.071-29.35 0-53.142-23.817-53.142-53.197 0-28.299 22.132-51.612 50.361-53.124l.832-.044.382.583-.017-.586c.795-.02.795-.02 1.59-.024 1.42.011 1.42.011 1.933.05l409.986.001z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="product__form-buttons">
+                        <!-- <button class="add-to-cart" type="submit" name="add">Buy Now</button> -->
+                        <div id="simpl-checkout-product-v2" class="simpl-button-container break-point-270">
+                            <style>
+                                #simpl-checkout-product-v2 .promo-text-container { display: block !important; margin-bottom: 0px; }
+                                .shopify-payment-button__button--unbranded { display: none !important; }
+                                #simpl-checkout-product-v2.simpl-button-container { width: 220px; margin-top: -30px; }
+                                #simpl-checkout-product-v2 .simpl-button { padding: 12px; font-size: 18px; font-family: "DM Sans", sans-serif; font-weight: 400; }
+                                @media only screen and (max-width:500px) {
+                                    #simpl-checkout-product-v2.simpl-button-container { width: 200px; margin-top: -25px; }
+                                    #simpl-checkout-product-v2 .simpl-button { padding: 11px; }
+                                }
+                            </style>
+                            <style>
+                                .simpl-button-v3-variables {
+                                    --simpl-button-v3-textColor: #ffffff;
+                                    --simpl-button-v3-backgroundColor: #2b558d;
+                                    --simpl-button-v3-borderRadius: 0px;
+                                    --simpl-button-v3-hoverTextColor: #ffffff;
+                                    --simpl-button-v3-hoverbackgroundColor: #2b558d;
+                                    --simpl-button-v3-promoTextbackgroundColor: #5653FF;
+                                    --simpl-button-v3-promoTextColor: #ffffff;
+                                }
+                                .simpl-button-v3 {
+                                    width: 100%;
+                                    padding: 12px;
+                                    font-size: 14px;
+                                    background-color: var(--simpl-button-v3-backgroundColor);
+                                    color: var(--simpl-button-v3-textColor);
+                                    border-radius: var(--simpl-button-v3-borderRadius);
+                                    cursor: pointer;
+                                    display: inline-flex;
+                                    align-items: center;
+                                    white-space: nowrap;
+                                    border: none;
+                                }
+                                .simpl-button-v3:hover {
+                                    color: var(--simpl-button-v3-hoverTextColor);
+                                    background-color: var(--simpl-button-v3-hoverbackgroundColor);
+                                }
+                                .simpl-button-v3 .left-section { }
+                                .simpl-button-v3 .center-section {
+                                    display: inline-flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                }
+                                .simpl-button-v3 .center-section img {
+                                    height: 21px;
+                                    padding-right: 5px;
+                                    padding-bottom: 2px;
+                                }
+                                .simpl-button-v3 .right-section {
+                                    text-align: right;
+                                }
+                                .simpl-button-v3 .right-section img {
+                                    height: 24px;
+                                }
+                                .promo-text-container {
+                                    display: block;
+                                    width: 50%;
+                                    margin: auto;
+                                    text-align: center;
+                                }
+                                .promo-text {
+                                    color: var(--simpl-button-v3-promoTextColor);
+                                    background: var(--simpl-button-v3-promoTextbackgroundColor);
+                                    font-size: 10px;
+                                }
+                                .break-point-380 .simpl-button-v3 {
+                                    font-size: 12px;
+                                    padding: 6px;
+                                }
+                                .break-point-380 .simpl-button-v3 .center-section img {
+                                    height: 14px;
+                                }
+                                .break-point-380 .simpl-button-v3 .right-section img {
+                                    height: 20px;
+                                }
+                                .break-point-380 .promo-text-container {
+                                    margin-top: -3px;
+                                    margin-bottom: -4px;
+                                }
+                                .break-point-380 .promo-text {
+                                    font-size: 10px;
+                                }
+                                .break-point-330 .simpl-button-v3 {
+                                    font-size: 10px;
+                                    padding: 5px;
+                                }
+                                .break-point-330 .simpl-button-v3 .center-section img {
+                                    height: 10px;
+                                }
+                                .break-point-330 .simpl-button-v3 .right-section img {
+                                    height: 16px;
+                                }
+                                .break-point-330 .simpl-button-v3 .right-section {
+                                    display: block;
+                                }
+                                .break-point-330 .promo-text-container {
+                                    margin-top: -3px;
+                                    margin-bottom: -4px;
+                                }
+                                .break-point-330 .promo-text {
+                                    font-size: 8px;
+                                }
+                                .break-point-270 .simpl-button-v3 {
+                                    font-size: 10px;
+                                    padding: 5px;
+                                }
+                                .break-point-270 .simpl-button-v3 .center-section img {
+                                    height: 10px;
+                                }
+                                .break-point-270 .simpl-button-v3 .right-section img {
+                                    height: 16px;
+                                }
+                                .break-point-270 .simpl-button-v3 .right-section {
+                                    display: none;
+                                }
+                                .break-point-270 .promo-text-container {
+                                    width: 90%;
+                                }
+                                .break-point-270 .promo-text-container {
+                                    margin-top: -3px;
+                                    margin-bottom: -4px;
+                                }
+                                .break-point-270 .promo-text {
+                                    font-size: 8px;
+                                }
+                            </style>
+                            <div class="promo-text-container simpl-button-v3-variables" style="display: none;">
+                                <!-- <div class="promo-text" style="border-top-left-radius: 4px; border-top-right-radius: 4px; font-size: 10px;">Flat 500/- off on prepaid</div> -->
+                            </div>
+                            <!-- <button id="simpl_buynow-button" class="simpl-button-v3-variables simpl-button-v3 simpl-button">
+                                <div class="left-section" style="width: 25%; display: inline-flex;"></div>
+                                <div class="center-section" style="width: 50%;">
+                                     <img src="https://simpl-cdn.s3.amazonaws.com/images/checkout/SimplLogo.svg" style="display:none;">
+                                    Buy It Now 
+                                </div>
+                                <div class="right-section" style="display:none;">
+                                    <img alt="right section image" src="https://simpl-cdn.s3.amazonaws.com/images/checkout/upi.png">
+                                </div>
+                            </button> -->
+                            <div style="display: none;" id="simpl-breakpoints" data-breakpoints="270,330,380"></div>
+                        </div>
+                    </div>
+                </div>
+                <div data-banner="" data-type="product-page" data-id="2fbabded-56fd-477f-b085-1a38c672afbf" style="width: 100%; padding: 8px calc(8px) 16px; border: 1px solid rgb(197, 200, 209); border-radius: 8px; display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 0px; margin-bottom: 20px; background: rgb(255, 255, 255); position: relative;">
+                    <style>
+                        .icon-block-container-2fbabded-56fd-477f-b085-1a38c672afbf {
+                            grid-template-columns: repeat(4, 1fr);
+                        }
+                        @media (min-width: 768px) {
+                            .icon-block-container-2fbabded-56fd-477f-b085-1a38c672afbf {
+                                grid-template-columns: repeat(4, 1fr);
+                            }
+                        }
+                    </style>
+                    <div class="icon-block-container icon-block-container-2fbabded-56fd-477f-b085-1a38c672afbf" style="display: grid; width: 100%; justify-content: center; column-gap: 8px; row-gap: 16px;">
+                        <div class="icon-block" style="display: grid; align-content: start; row-gap: 4px;">
+                            <div class="icon-container" style="display: flex; align-items: center; justify-content: center; padding: 4px; border-radius: 4px; background-color: #ffffff; width: fit-content; margin: auto; background-image: url('https://rivmorkxomnwzdlytbgv.supabase.co/storage/v1/object/public/public/ecom-icons/delivery2.svg'); background-repeat: no-repeat; background-position: center; background-size: 28px;">
+                                <div class="icon" style="height: 28px; width: 28px; display: flex;"></div>
+                            </div>
+                            <div class="text-container" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; flex: 1; gap: 2px;">
+                                <span class="title" style="display: block; font-weight: 600; font-size: 12px; color: #202223; margin: 0; line-height: 1; word-wrap: break-word; max-width: 100%;">Ships in 24Hrs</span>
+                            </div>
+                        </div>
+                        <div class="icon-block" style="display: grid; align-content: start; row-gap: 4px;">
+                            <div class="icon-container" style="display: flex; align-items: center; justify-content: center; padding: 4px; border-radius: 4px; background-color: #ffffff; width: fit-content; margin: auto; background-image: url('https://rivmorkxomnwzdlytbgv.supabase.co/storage/v1/object/public/public/ecom-icons/wallet.svg'); background-repeat: no-repeat; background-position: center; background-size: 28px;">
+                                <div class="icon" style="height: 28px; width: 28px; display: flex;"></div>
+                            </div>
+                            <div class="text-container" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; flex: 1; gap: 2px;">
+                                <span class="title" style="display: block; font-weight: 600; font-size: 12px; color: #202223; margin: 0; line-height: 1; word-wrap: break-word; max-width: 100%;">COD available up to 25k</span>
+                            </div>
+                        </div>
+                        <div class="icon-block" style="display: grid; align-content: start; row-gap: 4px;">
+                            <div class="icon-container" style="display: flex; align-items: center; justify-content: center; padding: 4px; border-radius: 4px; background-color: #ffffff; width: fit-content; margin: auto; background-image: url('https://rivmorkxomnwzdlytbgv.supabase.co/storage/v1/object/public/public/ecom-icons/discount.svg'); background-repeat: no-repeat; background-position: center; background-size: 28px;">
+                                <div class="icon" style="height: 28px; width: 28px; display: flex;"></div>
+                            </div>
+                            <div class="text-container" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; flex: 1; gap: 2px;">
+                                <span class="title" style="display: block; font-weight: 600; font-size: 12px; color: #202223; margin: 0; line-height: 1; word-wrap: break-word; max-width: 100%;">No Cost EMI above 7K</span>
+                            </div>
+                        </div>
+                        <div class="icon-block" style="display: grid; align-content: start; row-gap: 4px;">
+                            <div class="icon-container" style="display: flex; align-items: center; justify-content: center; padding: 4px; border-radius: 4px; background-color: #ffffff; width: fit-content; margin: auto; background-image: url('https://rivmorkxomnwzdlytbgv.supabase.co/storage/v1/object/public/public/ecom-icons/rozette.svg'); background-repeat: no-repeat; background-position: center; background-size: 28px;">
+                                <div class="icon" style="height: 28px; width: 28px; display: flex;"></div>
+                            </div>
+                            <div class="text-container" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; flex: 1; gap: 2px;">
+                                <span class="title" style="display: block; font-weight: 600; font-size: 12px; color: #202223; margin: 0; line-height: 1; word-wrap: break-word; max-width: 100%;">1 Year Warranty</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="start-review" onclick="toggleReviewForm()">Start Review System</button>
+            </div>
+        </div>
+        <!-- Related Products Section -->
+        <div class="related-products">
+            <h2>Related Products</h2>
+            <div class="related-products-grid">
+                <div class="related-product">
+                    <a href="google.com">
+                        <img src="/summer_internship_2024/project/product/timex watch men/tweg22100.webp" alt="Related Product 1">
+                        <div class="related-product-title">Timex Classic Men Watch</div>
+                    </a>
+                </div>
+                <div class="related-product">
+                    <img src="/summer_internship_2024/project/product/timex watch men/tweg20900.webp" alt="Related Product 2">
+                    <div class="related-product-title">Timex Expedition Watch</div>
+                </div>
+                <div class="related-product">
+                    <img src="/summer_internship_2024/project/product/timex watch men/watch-5.webp" alt="Related Product 3">
+                    <div class="related-product-title">Timex Modern Men's Watch</div>
+                </div>
+            </div>
+        </div>
+        <!-- Leave a Review Section -->
+        <div class="leave-review hidden">
+            <h2>Leave a Review</h2>
+            <form class="review-form">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required>
+                <label for="rating">Your Rating</label>
+                <input type="number" id="rating" name="rating" min="1" max="5" required>
+                <label for="review">Your Review</label>
+                <textarea id="review" name="review" rows="4" required></textarea>
+                <button type="submit">Submit Review</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

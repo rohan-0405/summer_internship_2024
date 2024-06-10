@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/summer_internship_2024/project/favicon_io (2)/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/summer_internship_2024/project/favicon_io (2)/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/summer_internship_2024/project/favicon_io (2)/favicon-16x16.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <title>Login</title>
+    <style>
+        body {
+            background-image: url('/project/login_page/bg2.avif');
+            background-size: cover;
+            background-position: center;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        .logo {
+            display: block;
+            margin: 0 auto;
+            width: 50px;
+            height: auto;
+        }
+        .title {
+            margin-top: 10px;
+            color: #333;
+            text-align: center;
+        }
+        .input-field {
+            margin-top: 10px;
+        }
+        .input-field input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .input-field input:focus {
+            outline: none;
+            border-color: #4A90E2;
+        }
+        .button {
+            background: #4A90E2;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background: #357ABD;
+        }
+        .forgot-password,
+        .register-link {
+            color: #4A90E2;
+            text-decoration: none;
+        }
+        .forgot-password:hover,
+        .register-link:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #777;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            .button {
+                padding: 8px;
+            }
+            .input-field input {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img class="logo" src="/project/favicon_io (2)/apple-touch-icon.png" alt="Your Company">
+        <h2 class="title">Sign in to your account</h2>
+        <form class="space-y-6" action="#" method="POST">
+            <div class="input-field">
+                <label for="email" class="block text-sm font-medium leading-6">Email address</label>
+                <div class="mt-2">
+                    <input id="email" name="email" type="email" autocomplete="email" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+            </div>
+            <div class="input-field">
+                <div class="flex items-center justify-between">
+                    <label for="password" class="block text-sm font-medium leading-6">Password</label>
+                    <div class="text-sm">
+                        <a href="#" class="forgot-password">Forgot password?</a>
+                    </div>
+                </div>
+                <div class="mt-2">
+                    <input id="password" name="password" type="password" autocomplete="current-password" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+            </div>        
+            <div>
+                <button type="submit" class="button">Sign in</button>
+            </div>
+        </form>
+        <p class="mt-10 text-center text-sm text-gray-500">
+            New to Site?
+            <a href="/Users/rohanpatel/Documents/projects/summer_internship_2024/project/register_page/register_page.html" class="register-link">Register-Here</a>
+        </p>
+        <div class="footer">
+            <p>&copy; 2024 Your Company. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
