@@ -7,6 +7,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/summer_internship_2024/project/favicon_io (2)/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/summer_internship_2024/project/favicon_io (2)/favicon-16x16.png">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="http://192.168.1.6:5500/project/register_page/register_page.htmll"> -->
+    <!-- <link rel="stylesheet" href="/project/Footer/footer.html"> -->
     <title>Login</title>
     <style>
         body {
@@ -91,6 +93,17 @@
             }
         }
     </style>
+   <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous">
+    </script>
+    <script> 
+        $(function(){
+        $("#header").load("header.html"); 
+        $("#footer").load("footer.html"); 
+        });
+    </script> 
 </head>
 <body>
     <div class="container">
@@ -120,7 +133,7 @@
         </form>
         <p class="mt-10 text-center text-sm text-gray-500">
             New to Site?
-            <a href="/Users/rohanpatel/Documents/projects/summer_internship_2024/project/register_page/register_page.html" class="register-link">Register-Here</a>
+            <a href="http://192.168.1.6:5500/project/register_page/register_page.html" class="register-link">Register-Here</a>
         </p>
         <div class="footer">
             <p>&copy; 2024 Your Company. All rights reserved.</p>
